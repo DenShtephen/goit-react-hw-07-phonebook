@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { selectContacts, selectFilters } from '../../redux/selectors';
-import { deleteContact } from '../../redux/contactsSlice.js';
+import { deleteContacts } from '../../redux/operations';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
@@ -12,7 +12,7 @@ export const ContactList = () => {
   );
 
   const handleContactDelete = contactId => {
-    dispatch(deleteContact(contactId));
+    dispatch(deleteContacts(contactId));
   };
 
   return (

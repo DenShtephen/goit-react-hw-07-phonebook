@@ -1,9 +1,9 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
+import { addContacts } from '../../redux/operations';
 import '../../index.css';
-import { selectContacts } from 'redux/selectors';
+import { selectContacts } from '../../redux/selectors';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
@@ -45,7 +45,7 @@ export const ContactForm = () => {
     if (nameExists) {
       alert(`"${newContact.name}" вже є в списку контактів.`);
     } else {
-      dispatch(addContact(newContact));
+      dispatch(addContacts(newContact));
     }
   };
 
