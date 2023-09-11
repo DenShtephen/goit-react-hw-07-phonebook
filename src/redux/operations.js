@@ -41,5 +41,3 @@ export const deleteContacts = createAsyncThunk(
     }
   }
 );
-
-console.log(fetchContacts);

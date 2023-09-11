@@ -12,6 +12,7 @@ const initialState = { items: [], isLoading: false, error: null };
 
 const contactsSlice = createSlice({
   name: 'contacts',
+
   initialState,
   extraReducers: builder =>
     builder
@@ -19,7 +20,7 @@ const contactsSlice = createSlice({
         state.items = action.payload;
       })
       .addCase(addContacts.fulfilled, (state, action) => {
-        state.items.unshift(action.payload);
+        state.items.push(action.payload);
       })
       .addCase(deleteContacts.fulfilled, (state, action) => {
         const index = state.items.findIndex(
@@ -40,6 +41,4 @@ const contactsSlice = createSlice({
       }),
 });
 
-export const { addContacts: addContact, deleteContacts: deleteContact } =
-  contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
